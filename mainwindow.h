@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "tradingengine.h"
+
 #include <QPushButton>
 #include <QTextEdit>
 
@@ -21,10 +23,16 @@ public:
 
 private slots:
     void onStartButtonClicked();  // Обработчик кнопки "Старт"
+    void onStopButtonClicked();  // Обработчик кнопки "Стоп"
     void logMessage(const QString &message);  // Логирование
 
 private:
     Ui::MainWindow *ui;
     void setupUI();  // Настройка интерфейса
+    TradingEngine *m_engine;  // Добавляем движок
+    QTextEdit *logTextEdit;
+    QPushButton *startButton;
+    QPushButton *stopButton;
+
 };
 #endif // MAINWINDOW_H

@@ -23,6 +23,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(TradingBot
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        tradingengine.h tradingengine.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET TradingBot APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
