@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
+#include <QTextEdit>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,7 +19,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void onStartButtonClicked();  // Обработчик кнопки "Старт"
+    void logMessage(const QString &message);  // Логирование
+
 private:
     Ui::MainWindow *ui;
+    void setupUI();  // Настройка интерфейса
 };
 #endif // MAINWINDOW_H
