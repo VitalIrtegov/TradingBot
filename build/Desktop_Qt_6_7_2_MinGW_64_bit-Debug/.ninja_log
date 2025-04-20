@@ -1,0 +1,9 @@
+# ninja log v6
+36	2174	7668462194820137	TradingBot_autogen/timestamp	ad14b536a84b08a8
+36	2174	7668462194820137	TradingBot_autogen/mocs_compilation.cpp	ad14b536a84b08a8
+36	2174	7668462194820137	C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/timestamp	ad14b536a84b08a8
+36	2174	7668462194820137	C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/mocs_compilation.cpp	ad14b536a84b08a8
+2194	8846	7668462196989361	CMakeFiles/TradingBot.dir/TradingBot_autogen/mocs_compilation.cpp.obj	d34eeb90a554e355
+2210	9069	7668462197145575	CMakeFiles/TradingBot.dir/main.cpp.obj	ee014d5780d682b6
+2226	9226	7668462197301794	CMakeFiles/TradingBot.dir/mainwindow.cpp.obj	af6e23d9fc242dbc
+9227	9918	7668462267358631	TradingBot.exe	3a4a476f9eb81889

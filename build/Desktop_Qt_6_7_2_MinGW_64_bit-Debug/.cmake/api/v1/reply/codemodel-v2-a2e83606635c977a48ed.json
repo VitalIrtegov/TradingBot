@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-52df89ff302289e170d7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "TradingBot",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "TradingBot::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TradingBot-Debug-b921ae82ea9d6bba9c75.json",
+					"name" : "TradingBot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "TradingBot_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TradingBot_autogen-Debug-8d9bc6de882e0b5f16af.json",
+					"name" : "TradingBot_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "TradingBot_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TradingBot_autogen_timestamp_deps-Debug-6412b4d7efc37989b45d.json",
+					"name" : "TradingBot_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
+		"source" : "C:/ProjectsQt/TradingBot"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
