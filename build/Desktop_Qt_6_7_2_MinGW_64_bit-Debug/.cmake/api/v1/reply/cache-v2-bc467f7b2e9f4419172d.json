@@ -1566,6 +1566,66 @@
 			"value" : "1"
 		},
 		{
+			"name" : "QTAES_ENABLE_AESNI",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "QtAES: Enable AES-NI"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "QTAES_ENABLE_INSTALL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "QtAES: Enable install"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "QTAES_ENABLE_TESTS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "QtAES: Enable tests"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "QTAES_ENABLE_WERROR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "QtAES: Treat warnings as errors"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "QTAES_QT_VERSION",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "QtAES: Qt version to use"
+				}
+			],
+			"type" : "STRING",
+			"value" : "6"
+		},
+		{
 			"name" : "QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH",
 			"properties" : 
 			[
@@ -1932,6 +1992,18 @@
 				{
 					"name" : "HELPSTRING",
 					"value" : "Qt feature: backtrace (from target Qt6::Core)"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "QT_FEATURE_batch_test_support",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Qt feature: batch_test_support (from target Qt6::Test)"
 				}
 			],
 			"type" : "INTERNAL",
@@ -3444,6 +3516,18 @@
 				{
 					"name" : "HELPSTRING",
 					"value" : "Qt feature: itemmodel (from target Qt6::Core)"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "ON"
+		},
+		{
+			"name" : "QT_FEATURE_itemmodeltester",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Qt feature: itemmodeltester (from target Qt6::Test)"
 				}
 			],
 			"type" : "INTERNAL",
@@ -5262,6 +5346,18 @@
 			"value" : "ON"
 		},
 		{
+			"name" : "QT_FEATURE_testlib_selfcover",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Qt feature: testlib_selfcover (from target Qt6::Test)"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "OFF"
+		},
+		{
 			"name" : "QT_FEATURE_textbrowser",
 			"properties" : 
 			[
@@ -5596,6 +5692,18 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "ON"
+		},
+		{
+			"name" : "QT_FEATURE_valgrind",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Qt feature: valgrind (from target Qt6::Test)"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "OFF"
 		},
 		{
 			"name" : "QT_FEATURE_validator",
@@ -6042,6 +6150,18 @@
 			"value" : "C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6Gui"
 		},
 		{
+			"name" : "Qt6Test_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for Qt6Test."
+				}
+			],
+			"type" : "PATH",
+			"value" : "C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6Test"
+		},
+		{
 			"name" : "Qt6WidgetsTools_DIR",
 			"properties" : 
 			[
@@ -6088,6 +6208,42 @@
 			],
 			"type" : "PATH",
 			"value" : "C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6"
+		},
+		{
+			"name" : "QtAES_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Qt-AES"
+		},
+		{
+			"name" : "QtAES_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "QtAES_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/ProjectsQt/TradingBot/Qt-AES"
 		},
 		{
 			"name" : "TradingBot_BINARY_DIR",

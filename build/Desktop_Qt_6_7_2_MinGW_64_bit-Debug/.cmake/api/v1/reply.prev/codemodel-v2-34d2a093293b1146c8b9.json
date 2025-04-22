@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-52df89ff302289e170d7.json",
+					"jsonFile" : "directory-.-Debug-de918283070261a62bc3.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "TradingBot::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-TradingBot-Debug-b921ae82ea9d6bba9c75.json",
+					"jsonFile" : "target-TradingBot-Debug-b67d8550cbf1a0a6158d.json",
 					"name" : "TradingBot",
 					"projectIndex" : 0
 				},

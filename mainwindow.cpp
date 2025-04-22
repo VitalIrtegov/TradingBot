@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QWidget>
+#include <QDateTime>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -48,26 +49,26 @@ MainWindow::MainWindow(QWidget *parent)
     connect(startButton, &QPushButton::clicked, this, &MainWindow::onStartButtonClicked);
     connect(stopButton, &QPushButton::clicked, this, &MainWindow::onStopButtonClicked);
     connect(m_engine, &TradingEngine::newLogMessage, this, &MainWindow::logMessage);
+
+    //m_engine->testLogOutput();  // НЕ УДАЛЯТЬ!!!! Тестовый вызов для проверки класса TradingEngine
 }
 
-void MainWindow::onStartButtonClicked()
-{
+void MainWindow::onStartButtonClicked() {
     logMessage("Бот запущен!");
     // Здесь будет основная логика
 }
 
-void MainWindow::onStopButtonClicked()
-{
+void MainWindow::onStopButtonClicked() {
     logMessage("Бот остановлен!");
     // Здесь будет основная логика
 }
 
-void MainWindow::logMessage(const QString &message)
-{
-    logTextEdit->append(message);
+void MainWindow::logMessage(const QString &message) {
+    //qDebug() << "Получено сообщение:" << message;  // Отладка в консоль
+    logTextEdit->append(QDateTime::currentDateTime().toString("[hh:mm:ss] ") + message);
+    //logTextEdit->append(message);
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
     delete ui;
 }

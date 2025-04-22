@@ -1,6 +1,6 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen",
+	"BUILD_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/tiny_aes_autogen",
 	"CMAKE_BINARY_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
 	"CMAKE_CURRENT_BINARY_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
 	"CMAKE_CURRENT_SOURCE_DIR" : "C:/ProjectsQt/TradingBot",
@@ -292,52 +292,27 @@
 	],
 	"CMAKE_SOURCE_DIR" : "C:/ProjectsQt/TradingBot",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/deps",
-	"DEP_FILE_RULE_NAME" : "TradingBot_autogen/timestamp",
+	"DEP_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/tiny_aes_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "tiny_aes_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"C:/ProjectsQt/TradingBot/keymanager.h",
+			"C:/ProjectsQt/TradingBot/tiny-AES/aes.h",
 			"MU",
-			"EWIEGA46WW/moc_keymanager.cpp",
+			"WDCJGV6ESF/moc_aes.cpp",
 			null
 		],
 		[
-			"C:/ProjectsQt/TradingBot/mainwindow.h",
+			"C:/ProjectsQt/TradingBot/tiny-AES/aes.hpp",
 			"MU",
-			"EWIEGA46WW/moc_mainwindow.cpp",
-			null
-		],
-		[
-			"C:/ProjectsQt/TradingBot/qaesencryption.h",
-			"MU",
-			"EWIEGA46WW/moc_qaesencryption.cpp",
-			null
-		],
-		[
-			"C:/ProjectsQt/TradingBot/tradingengine.h",
-			"MU",
-			"EWIEGA46WW/moc_tradingengine.cpp",
+			"WDCJGV6ESF/moc_aes_hpp.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/include",
-	"MOC_COMPILATION_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : 
-	[
-		"MINGW_HAS_SECURE_API=1",
-		"QT_CORE_LIB",
-		"QT_GUI_LIB",
-		"QT_NEEDS_QMAIN",
-		"QT_WIDGETS_LIB",
-		"UNICODE",
-		"WIN32",
-		"WIN64",
-		"_ENABLE_EXTENDED_ALIGNED_STORAGE",
-		"_UNICODE",
-		"_WIN64"
-	],
+	"INCLUDE_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/tiny_aes_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/tiny_aes_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[
@@ -347,11 +322,6 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"C:/Qt/6.7.2/mingw_64/include/QtCore",
-		"C:/Qt/6.7.2/mingw_64/include",
-		"C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++",
-		"C:/Qt/6.7.2/mingw_64/include/QtWidgets",
-		"C:/Qt/6.7.2/mingw_64/include/QtGui",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward",
@@ -379,24 +349,20 @@
 		"-c",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/tiny_aes_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 2,
-	"PARSE_CACHE_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/TradingBot_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/tiny_aes_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "C:/Qt/6.7.2/mingw_64/./bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt/6.7.2/mingw_64/./bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 7,
-	"SETTINGS_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/TradingBot_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/tiny_aes_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "C:/ProjectsQt/TradingBot/keymanager.cpp", "MU", null ],
-		[ "C:/ProjectsQt/TradingBot/main.cpp", "MU", null ],
-		[ "C:/ProjectsQt/TradingBot/mainwindow.cpp", "MU", null ],
-		[ "C:/ProjectsQt/TradingBot/qaesencryption.cpp", "MU", null ],
-		[ "C:/ProjectsQt/TradingBot/tradingengine.cpp", "MU", null ]
+		[ "C:/ProjectsQt/TradingBot/tiny-AES/aes.c", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

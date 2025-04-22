@@ -72,3 +72,14 @@ CMakeLists.txt.user*
 *.dll
 *.exe
 
+# Excluding the 
+.env
+file.env
+*.enc
+.env.example
+.env.js
+.env.json
+
+*.bin
+*.dat
+/secrets/

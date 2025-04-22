@@ -1,0 +1,28 @@
+{
+	"BUILD_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen",
+	"CMAKE_BINARY_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/ProjectsQt/TradingBot",
+	"CMAKE_SOURCE_DIR" : "C:/ProjectsQt/TradingBot",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/ProjectsQt/TradingBot/Qt-AES/unit_test/moby-dick.txt",
+		"C:/ProjectsQt/TradingBot/Qt-AES/unit_test/shakespeare-complete-works.txt",
+		"C:/ProjectsQt/TradingBot/Qt-AES/unit_test/la-divina-commedia.txt",
+		"C:/ProjectsQt/TradingBot/Qt-AES/unit_test/alices-in-wonderland.txt"
+	],
+	"LOCK_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/TradingBot_autogen.dir/AutoRcc_res_3Q7KYC43GU_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "res" ],
+	"OUTPUT_CHECKSUM" : "3Q7KYC43GU",
+	"OUTPUT_NAME" : "qrc_res.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.7.2/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/TradingBot_autogen.dir/AutoRcc_res_3Q7KYC43GU_Used.txt",
+	"SOURCE" : "C:/ProjectsQt/TradingBot/Qt-AES/res.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

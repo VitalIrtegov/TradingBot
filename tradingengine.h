@@ -10,9 +10,10 @@ public:
     explicit TradingEngine(QObject *parent = nullptr);
     void startTrading();
     void stopTrading();
+    void testLogOutput(); // НЕ УДАЛЯТЬ!!!! Тестовый вызов для проверки класса TradingEngine
 
 signals:
-    void newLogMessage(const QString &message);  // Для логов
+    void newLogMessage(const QString &message);  // Для логов  // Без реализации! Так нужно для связимежду классами
     void marketDataUpdated(double price);       // Пример данных рынка
 
 private slots:
@@ -21,4 +22,5 @@ private slots:
 private:
     QTimer *m_timer;
     bool m_isRunning = false;
+
 };
