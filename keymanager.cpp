@@ -92,41 +92,107 @@ bool KeyManager::loadKeys() {
 }
 
 bool KeyManager::storeBotToken(const QString& token) {
-    if (token.isEmpty()) return false;
+    if (token.isEmpty()) {
+        qDebug() << "Ошибка: Пустой токен не может быть сохранён";
+        return false;
+    }
 
+    // 1. Преобразуем токен в бинарный формат
     QByteArray tokenData = token.toUtf8();
+    qDebug() << "Токен преобразован в бинарные данные, размер:" << tokenData.size() << "байт";
+
+    // 2. Шифруем данные
     QByteArray protectedData = protectData(tokenData);
-    if (protectedData.isEmpty()) return false;
+    if (protectedData.isEmpty()) {
+        qDebug() << "Ошибка шифрования: protectData вернул пустой массив";
+        return false;
+    }
+    qDebug() << "Данные успешно зашифрованы, размер:" << protectedData.size() << "байт";
 
-    QFile tokenFile("bot_token.bin");
-    if (!tokenFile.open(QIODevice::WriteOnly)) return false;
-
-    // Добавляем HMAC для проверки целостности
+    // 3. Создаём HMAC для проверки целостности
     QByteArray hmac = QCryptographicHash::hash(protectedData, QCryptographicHash::Sha256);
-    return tokenFile.write(hmac + protectedData) == (hmac.size() + protectedData.size());
+    qDebug() << "HMAC создан:" << hmac.toHex();
+
+    // 4. Открываем файл для записи
+    QFile tokenFile("token.bin");
+    if (!tokenFile.open(QIODevice::WriteOnly)) {
+        qDebug() << "Ошибка открытия файла:" << tokenFile.errorString();
+        return false;
+    }
+
+    // 5. Записываем данные (HMAC + зашифрованный токен)
+    qint64 bytesWritten = tokenFile.write(hmac + protectedData);
+
+    // 6. Проверяем корректность записи
+    bool success = (bytesWritten == (hmac.size() + protectedData.size()));
+    if (success) {
+        qDebug() << "Токен успешно сохранён в token.bin, записано" << bytesWritten << "байт";
+        //qDebug() << "Путь к файлу:" << QFileInfo(tokenFile).absoluteFilePath();
+    } else {
+        qDebug() << "Ошибка записи в файл. Ожидалось:"
+                 << (hmac.size() + protectedData.size())
+                 << "байт, записано:" << bytesWritten;
+    }
+
+    tokenFile.close();
+    return success;
 }
 
 QString KeyManager::loadBotToken() {
-    QFile tokenFile("bot_token.bin");
-    if (!tokenFile.open(QIODevice::ReadOnly)) return QString();
-
-    QByteArray fileData = tokenFile.readAll();
-    if (fileData.size() < 32) return QString(); // HMAC-SHA256 занимает 32 байта
-
-    QByteArray storedHmac = fileData.left(32);
-    QByteArray protectedData = fileData.mid(32);
-
-    // Проверка целостности
-    if (QCryptographicHash::hash(protectedData, QCryptographicHash::Sha256) != storedHmac) {
+    // 1. Открываем файл
+    QFile tokenFile("token.bin");
+    if (!tokenFile.exists()) {
+        qDebug() << "Файл token.bin не найден";
         return QString();
     }
 
+    if (!tokenFile.open(QIODevice::ReadOnly)) {
+        qDebug() << "Ошибка открытия файла:" << tokenFile.errorString();
+        return QString();
+    }
+
+    // 2. Читаем данные
+    QByteArray fileData = tokenFile.readAll();
+    tokenFile.close();
+
+    qDebug() << "Прочитано из файла:" << fileData.size() << "байт";
+
+    // 3. Проверяем минимальный размер (HMAC + хотя бы 1 байт данных)
+    if (fileData.size() < 33) { // 32 байта HMAC + минимум 1 байт данных
+        qDebug() << "Файл повреждён: слишком маленький размер";
+        return QString();
+    }
+
+    // 4. Извлекаем HMAC и данные
+    QByteArray storedHmac = fileData.left(32);
+    QByteArray protectedData = fileData.mid(32);
+
+    qDebug() << "Извлечён HMAC:" << storedHmac.toHex();
+    qDebug() << "Размер защищённых данных:" << protectedData.size() << "байт";
+
+    // 5. Проверяем целостность
+    QByteArray calculatedHmac = QCryptographicHash::hash(protectedData, QCryptographicHash::Sha256);
+    if (calculatedHmac != storedHmac) {
+        qDebug() << "Ошибка целостности! Хранимый HMAC:" << storedHmac.toHex();
+        qDebug() << "Вычисленный HMAC:" << calculatedHmac.toHex();
+        return QString();
+    }
+
+    // 6. Дешифруем данные
     QByteArray tokenData = unprotectData(protectedData);
-    return QString::fromUtf8(tokenData);
+    if (tokenData.isEmpty()) {
+        qDebug() << "Ошибка дешифрования: unprotectData вернул пустой массив";
+        return QString();
+    }
+
+    QString token = QString::fromUtf8(tokenData);
+    qDebug() << "Токен успешно загружен. Длина:" << token.length() << "символов";
+
+    return token;
 }
 
 bool KeyManager::hasStoredBotToken() const {
-    QFile tokenFile("bot_token.bin");
+    QFile tokenFile("token.bin");
     return tokenFile.exists();
 }
 

@@ -1,16 +1,22 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "keymanager.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QWidget>
 #include <QDateTime>
+#include <QInputDialog>
+//#include <QMessageBox> // для записи токена
+//#include <QFileInfo> // для записи токена
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-    ui(new Ui::MainWindow),  // Правильное имя указателя
-    m_engine(new TradingEngine(this))  // Отдельная инициализация
+    ui(new Ui::MainWindow),
+    m_engine(new TradingEngine(this))
 {
+    //setupBotToken(); // запись токена нужна один раз
+
     setWindowTitle("Trading Bot Controller");
     //resize(800, 600); // по умолчанию
 
@@ -53,6 +59,10 @@ MainWindow::MainWindow(QWidget *parent)
     //m_engine->testLogOutput();  // НЕ УДАЛЯТЬ!!!! Тестовый вызов для проверки класса TradingEngine
 }
 
+MainWindow::~MainWindow() {
+    delete ui;
+}
+
 void MainWindow::onStartButtonClicked() {
     logMessage("Бот запущен!");
     // Здесь будет основная логика
@@ -69,6 +79,47 @@ void MainWindow::logMessage(const QString &message) {
     //logTextEdit->append(message);
 }
 
-MainWindow::~MainWindow() {
-    delete ui;
-}
+/*void MainWindow::setupBotToken() { // НЕ УДАЛЯТЬ!!!! Нужно для записи токена
+    KeyManager& km = KeyManager::instance();
+
+    bool ok;
+    QString token = QInputDialog::getText(
+        this,
+        "Ввод токена бота",
+        "Введите токен Telegram бота:",
+        QLineEdit::Normal,
+        "",
+        &ok
+        );
+    if (!ok || token.isEmpty()) {
+        qDebug() << "Пустая строка или отмена";
+        return;
+    }
+
+    // Простая валидация формата токена
+    if (!token.contains(':') || token.length() < 30) {
+        QMessageBox::warning(this,
+                             "Неверный формат",
+                             "Токен должен быть в формате 123456789:ABC-DEF1234ghIkl...");
+        return;
+    }
+
+    // Сохраняем токен
+    if (km.storeBotToken(token)) {
+        qDebug() << "Токен успешно сохранён!";
+
+        // Проверяем, что файл создан
+        QFileInfo tokenFile("token.bin");
+        if (tokenFile.exists()) {
+            qDebug() << "Файл token.bin создан, размер:"
+                     << tokenFile.size() << "байт";
+        } else {
+            qCritical() << "Ошибка: файл токена не создан!";
+        }
+    } else {
+        qCritical() << "Не удалось сохранить токен!";
+    }
+
+    return;
+}*/
+

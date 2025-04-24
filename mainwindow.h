@@ -27,6 +27,7 @@ private slots:
     void logMessage(const QString &message);  // Логирование
 
 private:
+    //void setupBotToken(); // запись токена нужна один раз
     Ui::MainWindow *ui;
     void setupUI();  // Настройка интерфейса
     TradingEngine *m_engine;  // Добавляем движок

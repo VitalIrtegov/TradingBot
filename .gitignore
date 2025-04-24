@@ -80,6 +80,7 @@ file.env
 .env.js
 .env.json
 
+*.key
 *.bin
 *.dat
 /secrets/
