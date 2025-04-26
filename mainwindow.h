@@ -6,6 +6,7 @@
 
 #include <QPushButton>
 #include <QTextEdit>
+#include <QNetworkAccessManager>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,12 +29,26 @@ private slots:
 
 private:
     //void setupBotToken(); // запись токена нужна один раз
+    //void setupBotChatId(); // запись ChatId нужна один раз
     Ui::MainWindow *ui;
-    void setupUI();  // Настройка интерфейса
     TradingEngine *m_engine;  // Добавляем движок
     QTextEdit *logTextEdit;
     QPushButton *startButton;
     QPushButton *stopButton;
 
+    // Инициализация клавиатуры в Telegram канале
+    void initTelegramKeyboard();
+
+    // Обработка нажатий inline-кнопок
+    void processCallback(const QJsonObject &callbackData);
+
+    // метод для запросов к Telegram API
+    void sendToTelegram(const QString &method, const QJsonObject &params);
+
+    QNetworkAccessManager *m_network;
+    QString m_botToken;
+    int64_t m_chatId; // Ваш chat_id (узнать через @userinfobot)
+    qint64 m_lastUpdateId = 0;  // ID последнего обработанного обновления
 };
+
 #endif // MAINWINDOW_H

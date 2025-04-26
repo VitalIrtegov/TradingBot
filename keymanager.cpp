@@ -50,47 +50,6 @@ QByteArray KeyManager::unprotectData(const QByteArray& protectedData) {
     return result;
 }
 
-bool KeyManager::initKeys() {
-    m_aesKey = generateSecureKey(32);
-    m_hmacKey = generateSecureKey(32);
-    return saveKeys();
-}
-
-bool KeyManager::saveKeys() {
-    QByteArray combined = m_aesKey + m_hmacKey;
-    QByteArray protectedData = protectData(combined);
-
-    QFile keyFile("keys.bin");
-    if (!keyFile.open(QIODevice::WriteOnly)) return false;
-
-    // Добавляем HMAC для проверки целостности
-    QByteArray hmac = QCryptographicHash::hash(protectedData, QCryptographicHash::Sha256);
-    return keyFile.write(hmac + protectedData) == (hmac.size() + protectedData.size());
-}
-
-bool KeyManager::loadKeys() {
-    QFile keyFile("keys.bin");
-    if (!keyFile.open(QIODevice::ReadOnly)) return false;
-
-    QByteArray data = keyFile.readAll();
-    if (data.size() < 32) return false; // 32 байта HMAC
-
-    QByteArray storedHmac = data.left(32);
-    QByteArray protectedData = data.mid(32);
-
-    // Проверка целостности
-    if (QCryptographicHash::hash(protectedData, QCryptographicHash::Sha256) != storedHmac) {
-        return false;
-    }
-
-    QByteArray decrypted = unprotectData(protectedData);
-    if (decrypted.size() != 64) return false; // 32+32
-
-    m_aesKey = decrypted.left(32);
-    m_hmacKey = decrypted.mid(32);
-    return true;
-}
-
 bool KeyManager::storeBotToken(const QString& token) {
     if (token.isEmpty()) {
         qDebug() << "Ошибка: Пустой токен не может быть сохранён";
@@ -167,7 +126,7 @@ QString KeyManager::loadBotToken() {
     QByteArray storedHmac = fileData.left(32);
     QByteArray protectedData = fileData.mid(32);
 
-    qDebug() << "Извлечён HMAC:" << storedHmac.toHex();
+    //qDebug() << "Извлечён HMAC:" << storedHmac.toHex();
     qDebug() << "Размер защищённых данных:" << protectedData.size() << "байт";
 
     // 5. Проверяем целостность
@@ -191,9 +150,97 @@ QString KeyManager::loadBotToken() {
     return token;
 }
 
-bool KeyManager::hasStoredBotToken() const {
-    QFile tokenFile("token.bin");
-    return tokenFile.exists();
+bool KeyManager::storeChatId(int64_t chatId) {
+    // 1. Преобразуем chatId в бинарный формат
+    QByteArray chatIdData(reinterpret_cast<const char*>(&chatId), sizeof(int64_t));
+    qDebug() << "ChatId преобразован в бинарные данные, размер:" << chatIdData.size() << "байт";
+
+    // 2. Шифруем данные
+    QByteArray protectedData = protectData(chatIdData);
+    if (protectedData.isEmpty()) {
+        qDebug() << "Ошибка шифрования: protectData вернул пустой массив";
+        return false;
+    }
+    qDebug() << "Данные успешно зашифрованы, размер:" << protectedData.size() << "байт";
+
+    // 3. Создаём HMAC для проверки целостности
+    QByteArray hmac = QCryptographicHash::hash(protectedData, QCryptographicHash::Sha256);
+    qDebug() << "HMAC создан:" << hmac.toHex();
+
+    // 4. Открываем файл для записи
+    QFile chatIdFile("chatId.bin");
+    if (!chatIdFile.open(QIODevice::WriteOnly)) {
+        qDebug() << "Ошибка открытия файла:" << chatIdFile.errorString();
+        return false;
+    }
+
+    // 5. Записываем данные (HMAC + зашифрованный chatId)
+    qint64 bytesWritten = chatIdFile.write(hmac + protectedData);
+
+    // 6. Проверяем корректность записи
+    bool success = (bytesWritten == (hmac.size() + protectedData.size()));
+    if (success) {
+        qDebug() << "ChatId успешно сохранён в chatId.bin, записано" << bytesWritten << "байт";
+    } else {
+        qDebug() << "Ошибка записи в файл. Ожидалось:"
+                 << (hmac.size() + protectedData.size())
+                 << "байт, записано:" << bytesWritten;
+    }
+
+    chatIdFile.close();
+    return success;
+}
+
+int64_t KeyManager::loadChatId() {
+    // Открываем файл
+    QFile chatIdFile("chatId.bin");
+    if (!chatIdFile.exists()) {
+        qDebug() << "Файл chatId.bin не найден";
+        return 0;
+    }
+
+    if (!chatIdFile.open(QIODevice::ReadOnly)) {
+        qDebug() << "Ошибка открытия файла:" << chatIdFile.errorString();
+        return 0;
+    }
+
+    // Читаем данные
+    QByteArray fileData = chatIdFile.readAll();
+    chatIdFile.close();
+
+    qDebug() << "Прочитано из файла:" << fileData.size() << "байт";
+
+    // Проверяем минимальный размер (HMAC + 8 байт для int64_t)
+    if (fileData.size() < 40) { // 32 байта HMAC + 8 байт данных
+        qDebug() << "Файл повреждён: слишком маленький размер";
+        return 0;
+    }
+
+    // Извлекаем HMAC и данные
+    QByteArray storedHmac = fileData.left(32);
+    QByteArray protectedData = fileData.mid(32);
+
+    qDebug() << "Размер защищённых данных:" << protectedData.size() << "байт";
+
+    // Проверяем целостность
+    QByteArray calculatedHmac = QCryptographicHash::hash(protectedData, QCryptographicHash::Sha256);
+    if (calculatedHmac != storedHmac) {
+        qDebug() << "Ошибка целостности! Хранимый HMAC:" << storedHmac.toHex();
+        qDebug() << "Вычисленный HMAC:" << calculatedHmac.toHex();
+        return 0;
+    }
+
+    // Дешифруем данные
+    QByteArray chatIdData = unprotectData(protectedData);
+    if (chatIdData.size() != sizeof(int64_t)) {
+        qDebug() << "Ошибка дешифрования: неверный размер данных";
+        return 0;
+    }
+
+    int64_t chatId = *reinterpret_cast<const int64_t*>(chatIdData.constData());
+    qDebug() << "ChatId успешно загружен:";
+
+    return chatId;
 }
 
 // Шифрование сообщения

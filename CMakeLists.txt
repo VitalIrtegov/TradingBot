@@ -26,8 +26,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         tradingengine.h tradingengine.cpp
         qaesencryption.cpp qaesencryption.h
         keymanager.h keymanager.cpp
-        telegrambot.h telegrambot.cpp
-
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET TradingBot APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

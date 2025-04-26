@@ -8,10 +8,13 @@ class KeyManager {
 public:
     static KeyManager& instance();
 
-    // Основной API
+    // Основной API запись/чтение токена
     bool storeBotToken(const QString& token);
     QString loadBotToken();
-    bool hasStoredBotToken() const;
+
+    // Основной API запись/чтение chatId
+    bool storeChatId(int64_t chatId);
+    int64_t loadChatId();
 
     // Шифрование/дешифрование
     QByteArray encryptMessage(const QString& text);
@@ -28,10 +31,6 @@ private:
     KeyManager() = default;
     QByteArray m_aesKey;
     QByteArray m_hmacKey;
-
-    bool initKeys();
-    bool saveKeys();
-    bool loadKeys();
 
     QByteArray generateSecureKey(int size);
     QByteArray protectData(const QByteArray& data);
