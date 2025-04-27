@@ -12,13 +12,13 @@ void TradingEngine::startTrading() {
 
     m_isRunning = true;
     m_timer->start(1000);  // 1 сек интервал
-    emit newLogMessage("TradingEngine: Запущен");
+    emit newLogMessage("TradingEngine: Запущен", "WORK");
 }
 
 void TradingEngine::stopTrading() {
     m_timer->stop();
     m_isRunning = false;
-    emit newLogMessage("TradingEngine: Остановлен");
+    emit newLogMessage("TradingEngine: Остановлен", "WORK");
 }
 
 void TradingEngine::processMarketData() {
@@ -29,11 +29,11 @@ void TradingEngine::processMarketData() {
 }
 
 void TradingEngine::testLogOutput() { // НЕ УДАЛЯТЬ!!!! Тестовый вызов для проверки класса TradingEngine
-    emit newLogMessage("[Engine] Тестовое сообщение от класса TradingEngine");
+    emit newLogMessage("[Engine] Тестовое сообщение от класса TradingEngine", "TEST");
     //qDebug() << "Debug: Сообщение отправлено в класс MainWindow";
 
     // Пример периодического логгирования, через 3 сек
     QTimer::singleShot(3000, this, [this]() {
-        emit newLogMessage("[Engine] Автоматическое сообщение от класса TradingEngine через 3 сек");
+        emit newLogMessage("[Engine] Автоматическое сообщение от класса TradingEngine через 3 сек", "TEST");
     });
 }

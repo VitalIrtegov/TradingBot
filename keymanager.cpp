@@ -114,7 +114,7 @@ QString KeyManager::loadBotToken() {
     QByteArray fileData = tokenFile.readAll();
     tokenFile.close();
 
-    qDebug() << "Прочитано из файла:" << fileData.size() << "байт";
+    //qDebug() << "Прочитано из файла:" << fileData.size() << "байт";
 
     // 3. Проверяем минимальный размер (HMAC + хотя бы 1 байт данных)
     if (fileData.size() < 33) { // 32 байта HMAC + минимум 1 байт данных
@@ -127,7 +127,7 @@ QString KeyManager::loadBotToken() {
     QByteArray protectedData = fileData.mid(32);
 
     //qDebug() << "Извлечён HMAC:" << storedHmac.toHex();
-    qDebug() << "Размер защищённых данных:" << protectedData.size() << "байт";
+    //qDebug() << "Размер защищённых данных:" << protectedData.size() << "байт";
 
     // 5. Проверяем целостность
     QByteArray calculatedHmac = QCryptographicHash::hash(protectedData, QCryptographicHash::Sha256);
@@ -208,7 +208,7 @@ int64_t KeyManager::loadChatId() {
     QByteArray fileData = chatIdFile.readAll();
     chatIdFile.close();
 
-    qDebug() << "Прочитано из файла:" << fileData.size() << "байт";
+    //qDebug() << "Прочитано из файла:" << fileData.size() << "байт";
 
     // Проверяем минимальный размер (HMAC + 8 байт для int64_t)
     if (fileData.size() < 40) { // 32 байта HMAC + 8 байт данных
@@ -220,7 +220,7 @@ int64_t KeyManager::loadChatId() {
     QByteArray storedHmac = fileData.left(32);
     QByteArray protectedData = fileData.mid(32);
 
-    qDebug() << "Размер защищённых данных:" << protectedData.size() << "байт";
+    //qDebug() << "Размер защищённых данных:" << protectedData.size() << "байт";
 
     // Проверяем целостность
     QByteArray calculatedHmac = QCryptographicHash::hash(protectedData, QCryptographicHash::Sha256);
@@ -238,7 +238,7 @@ int64_t KeyManager::loadChatId() {
     }
 
     int64_t chatId = *reinterpret_cast<const int64_t*>(chatIdData.constData());
-    qDebug() << "ChatId успешно загружен:";
+    qDebug() << "ChatId успешно загружен.";
 
     return chatId;
 }

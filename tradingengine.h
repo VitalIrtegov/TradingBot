@@ -13,7 +13,7 @@ public:
     void testLogOutput(); // НЕ УДАЛЯТЬ!!!! Тестовый вызов для проверки класса TradingEngine
 
 signals:
-    void newLogMessage(const QString &message);  // Для логов  // Без реализации! Так нужно для связимежду классами
+    void newLogMessage(const QString &message, const QString &type);  // Для логов  // Без реализации! Так нужно для связимежду классами
     void marketDataUpdated(double price);       // Пример данных рынка
 
 private slots:

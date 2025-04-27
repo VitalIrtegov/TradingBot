@@ -318,6 +318,15 @@
 		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake",
 		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake",
 		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WebSockets/Qt6WebSocketsConfigVersion.cmake",
+		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WebSockets/Qt6WebSocketsConfigVersionImpl.cmake",
+		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WebSockets/Qt6WebSocketsConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WebSockets/Qt6WebSocketsDependencies.cmake",
+		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WebSockets/Qt6WebSocketsTargets.cmake",
+		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WebSockets/Qt6WebSocketsTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WebSockets/Qt6WebSocketsAdditionalTargetInfo.cmake",
+		"C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WebSockets/Qt6WebSocketsVersionlessTargets.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/GNUInstallDirs.cmake"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/ProjectsQt/TradingBot",
@@ -327,9 +336,21 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/ProjectsQt/TradingBot/datastreamer.h",
+			"MU",
+			"EWIEGA46WW/moc_datastreamer.cpp",
+			null
+		],
+		[
 			"C:/ProjectsQt/TradingBot/keymanager.h",
 			"MU",
 			"EWIEGA46WW/moc_keymanager.cpp",
+			null
+		],
+		[
+			"C:/ProjectsQt/TradingBot/logger.h",
+			"MU",
+			"EWIEGA46WW/moc_logger.cpp",
 			null
 		],
 		[
@@ -361,6 +382,7 @@
 		"QT_GUI_LIB",
 		"QT_NEEDS_QMAIN",
 		"QT_NETWORK_LIB",
+		"QT_WEBSOCKETS_LIB",
 		"QT_WIDGETS_LIB",
 		"UNICODE",
 		"WIN32",
@@ -384,6 +406,7 @@
 		"C:/Qt/6.7.2/mingw_64/include/QtWidgets",
 		"C:/Qt/6.7.2/mingw_64/include/QtGui",
 		"C:/Qt/6.7.2/mingw_64/include/QtNetwork",
+		"C:/Qt/6.7.2/mingw_64/include/QtWebSockets",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward",
@@ -424,7 +447,9 @@
 	"SETTINGS_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/TradingBot_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "C:/ProjectsQt/TradingBot/datastreamer.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/keymanager.cpp", "MU", null ],
+		[ "C:/ProjectsQt/TradingBot/logger.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/main.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/mainwindow.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/qaesencryption.cpp", "MU", null ],

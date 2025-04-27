@@ -1,0 +1,632 @@
+[
+    {
+        "message": "Бот запущен!",
+        "timestamp": "13:53:44",
+        "type": "INFO"
+    },
+    {
+        "message": "Бот остановлен!",
+        "timestamp": "13:53:46",
+        "type": "INFO"
+    },
+    {
+        "message": "Бот запущен!",
+        "timestamp": "13:56:42",
+        "type": "INFO"
+    },
+    {
+        "message": "Бот остановлен!",
+        "timestamp": "13:56:44",
+        "type": "INFO"
+    },
+    {
+        "message": "Бот запущен!",
+        "timestamp": "13:57:18",
+        "type": "INFO"
+    },
+    {
+        "message": "Бот остановлен!",
+        "timestamp": "13:57:20",
+        "type": "INFO"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "14:16:22",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Бот запущен!",
+        "timestamp": "14:16:32",
+        "type": "INFO"
+    },
+    {
+        "message": "Бот остановлен!",
+        "timestamp": "14:16:34",
+        "type": "INFO"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "14:16:46",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "16:12:57",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Сигнал успешно отправлен в Telegram",
+        "timestamp": "16:12:58",
+        "type": "INFO"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:03",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:06",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:09",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:15",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:15",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:21",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:21",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:27",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:27",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:30",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:33",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:36",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:42",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:13:42",
+        "type": "ERROR"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "16:13:43",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "16:15:33",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Сигнал успешно отправлен в Telegram",
+        "timestamp": "16:15:34",
+        "type": "INFO"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:15:39",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:15:45",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:15:45",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:15:51",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:15:51",
+        "type": "ERROR"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "16:15:53",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "16:17:36",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Сигнал успешно отправлен в Telegram",
+        "timestamp": "16:17:37",
+        "type": "INFO"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:17:42",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:17:45",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:17:48",
+        "type": "ERROR"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "16:17:48",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "16:21:15",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Бот запущен!",
+        "timestamp": "16:21:20",
+        "type": "INFO"
+    },
+    {
+        "message": "Сигнал успешно отправлен в Telegram",
+        "timestamp": "16:21:20",
+        "type": "INFO"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:21:21",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:21:27",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:21:27",
+        "type": "ERROR"
+    },
+    {
+        "message": "Ошибка отправки в Telegram: Error transferring https://api.telegram.org/bot7234219298:AAHjZwwSf6Z0iF643VXNfcwUJbmfHRlu5Rc/getUpdates - server replied: ",
+        "timestamp": "16:21:30",
+        "type": "ERROR"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "16:21:32",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "16:46:56",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Бот запущен!",
+        "timestamp": "16:47:08",
+        "type": "INFO"
+    },
+    {
+        "message": "Бот остановлен!",
+        "timestamp": "16:47:11",
+        "type": "INFO"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "16:47:49",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "16:49:35",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "16:50:40",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "17:03:23",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "17:04:04",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "17:05:51",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "17:06:48",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "17:13:05",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин",
+        "timestamp": "17:13:19",
+        "type": "WORK"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "17:14:22",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "17:16:33",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин",
+        "timestamp": "17:16:42",
+        "type": "WORK"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "17:17:11",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "17:22:56",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин | Цена: 1.2650 | TP: 1.2600 | SL: 1.2700",
+        "timestamp": "17:23:30",
+        "type": "WORK"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "17:23:48",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "17:24:23",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "17:25:14",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "17:58:47",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин | Цена: 1.2650 | TP: 1.2600 | SL: 1.2700",
+        "timestamp": "17:58:57",
+        "type": "OPEN"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "17:59:05",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "17:59:18",
+        "type": "RESULT"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "17:59:42",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:01:49",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин | Цена: 1.2650 | TP: 1.2600 | SL: 1.2700",
+        "timestamp": "18:01:56",
+        "type": "OPEN"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:00",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:06",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:12",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:17",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:17",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:17",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:18",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:18",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:18",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:18",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:18",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:02:35",
+        "type": "RESULT"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:02:45",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:05:34",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин | Цена: 1.2650 | TP: 1.2600 | SL: 1.2700",
+        "timestamp": "18:05:40",
+        "type": "OPEN"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин | Цена: 1.2650 | TP: 1.2600 | SL: 1.2700",
+        "timestamp": "18:05:43",
+        "type": "OPEN"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:05:47",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:05:51",
+        "type": "RESULT"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:06:18",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:10:14",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин | Цена: 1.2650 | TP: 1.2600 | SL: 1.2700",
+        "timestamp": "18:10:21",
+        "type": "OPEN"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:10:25",
+        "type": "RESULT"
+    },
+    {
+        "message": "EUR/USD Тейк-профит | Вход: 1.2650 | Выход: 1.2850 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:10:33",
+        "type": "RESULT"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин | Цена: 1.2650 | TP: 1.2600 | SL: 1.2700",
+        "timestamp": "18:10:35",
+        "type": "OPEN"
+    },
+    {
+        "message": "Отправлен сигнал: EUR/USD ВНИЗ, 4мин | Цена: 1.2650 | TP: 1.2600 | SL: 1.2700",
+        "timestamp": "18:10:36",
+        "type": "OPEN"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:10:46",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:14:20",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:15:07",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:17:43",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:18:08",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:20:37",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:21:03",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:21:57",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:22:14",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:23:34",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:23:48",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:24:44",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:25:07",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:27:17",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:27:45",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:29:14",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:29:46",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:31:50",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:32:40",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:41:15",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "EUR/USD Стоп-лосс | Вход: 1.2650 | Выход: 1.2450 | Пипс: 100.0 | Время: 4мин",
+        "timestamp": "18:41:24",
+        "type": "RESULT"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:41:35",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "22:01:38",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "22:01:52",
+        "type": "SYSTEM"
+    }
+]
