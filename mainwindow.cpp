@@ -261,9 +261,9 @@ void MainWindow::logMessage(const QString &message, const QString &type) {
     logTextEdit->append(formattedMessage);
 
     // запись в лог-файл через Logger
-    if (m_logger) {
+    /*if (m_logger) {
         m_logger->writeLog(message, type);
-    }
+    }*/
 }
 
 void MainWindow::showLogsWindow() {
