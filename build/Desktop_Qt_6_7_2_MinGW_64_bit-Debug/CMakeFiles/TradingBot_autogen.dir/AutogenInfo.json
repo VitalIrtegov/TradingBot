@@ -336,6 +336,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/ProjectsQt/TradingBot/binviewer.h",
+			"MU",
+			"EWIEGA46WW/moc_binviewer.cpp",
+			null
+		],
+		[
 			"C:/ProjectsQt/TradingBot/datastreamer.h",
 			"MU",
 			"EWIEGA46WW/moc_datastreamer.cpp",
@@ -447,6 +453,7 @@
 	"SETTINGS_FILE" : "C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/TradingBot_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "C:/ProjectsQt/TradingBot/binviewer.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/datastreamer.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/keymanager.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/logger.cpp", "MU", null ],

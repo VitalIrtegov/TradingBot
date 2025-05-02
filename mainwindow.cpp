@@ -25,7 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_dataStreamer(new DataStreamer(this)),
     m_botToken(KeyManager::instance().loadBotToken()),
     m_chatId(KeyManager::instance().loadChatId()),
-    m_logger(new Logger())
+    m_logger(new Logger()),
+    m_viewer(new BinViewer(this))
 {
     //setupBotToken(); // запись токена нужна один раз
     //setupBotChatId(); // запись ChatId нужна один раз
@@ -49,10 +50,12 @@ MainWindow::MainWindow(QWidget *parent)
     startButton = new QPushButton("Старт", this);
     stopButton = new QPushButton("Стоп", this);
     logsButton = new QPushButton("Показать логи", this);
+    viewBinButton = new QPushButton("Файлы bin", this);
 
     buttonLayout->addWidget(startButton);
     buttonLayout->addWidget(stopButton);
     buttonLayout->addWidget(logsButton);
+    buttonLayout->addWidget(viewBinButton);
     buttonLayout->setAlignment(Qt::AlignLeft);
 
     // Создаём поле для логов
@@ -70,10 +73,17 @@ MainWindow::MainWindow(QWidget *parent)
     connect(startButton, &QPushButton::clicked, this, &MainWindow::onStartButtonClicked);
     connect(stopButton, &QPushButton::clicked, this, &MainWindow::onStopButtonClicked);
     connect(logsButton, &QPushButton::clicked, this, &MainWindow::showLogsWindow);
+
+    // Подключаем сигнал TradingEngine для логов
     connect(m_engine, &TradingEngine::newLogMessage, this, &MainWindow::logMessage);
 
+    // Подключаем сигналы DataStreamer для логов
+    connect(m_dataStreamer, &DataStreamer::newLogMessage, this, &MainWindow::logMessage);
+
+    connect(viewBinButton, &QPushButton::clicked, this, &MainWindow::onBinViewerClicked);
+
     // Инициализация кнопок в Telegram
-    initTelegramKeyboard();
+    //initTelegramKeyboard();
 
     // Проверка обновлений каждые 3 секунды
     QTimer *updateTimer = new QTimer(this);
@@ -157,6 +167,11 @@ void MainWindow::onStartButtonClicked() {
 void MainWindow::onStopButtonClicked() {
     //logMessage("Бот остановлен!", "INFO");
     //sendTelegramResult("EUR/USD", "SL", 1.2650, 1.2450, 100, "4мин");
+    m_dataStreamer->DataStreamer::stopStream();
+}
+
+void MainWindow::onBinViewerClicked() {
+    m_viewer->BinViewer::showAndDisplay(); // просмотр бин файлов
 }
 
 void MainWindow::sendTelegramSignal(const QString &currencyPair, const QString &direction, const QString &duration,

@@ -346,6 +346,9 @@ Qt6Network_DIR:PATH=C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6Network
 //The directory containing a CMake configuration file for Qt6Test.
 Qt6Test_DIR:PATH=C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6Test
 
+//The directory containing a CMake configuration file for Qt6WebSockets.
+Qt6WebSockets_DIR:PATH=C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WebSockets
+
 //The directory containing a CMake configuration file for Qt6WidgetsTools.
 Qt6WidgetsTools_DIR:PATH=C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6WidgetsTools
 

@@ -5,6 +5,7 @@
 #include "tradingengine.h"
 #include "Logger.h"
 #include "datastreamer.h"
+#include "binviewer.h"
 
 #include <QPushButton>
 #include <QTextEdit>
@@ -45,6 +46,7 @@ private slots:
     void onStopButtonClicked();  // Обработчик кнопки "Стоп"
     void logMessage(const QString &message, const QString &type); // Логирование в окно
     void showLogsWindow(); // Логирование в файл
+    void onBinViewerClicked();
 
 private:
     //void setupBotToken(); // запись токена нужна один раз
@@ -73,6 +75,9 @@ private:
     QPushButton *logsButton;
 
     DataStreamer *m_dataStreamer;
+
+    BinViewer *m_viewer;
+    QPushButton *viewBinButton;
 };
 
 #endif // MAINWINDOW_H
