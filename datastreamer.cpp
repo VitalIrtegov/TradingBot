@@ -2,40 +2,39 @@
 #include <QTimer>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QFile>
+#include <QDataStream>
+#include <QDateTime>
+#include <QDir>
+#include <QCoreApplication>
 
 DataStreamer::DataStreamer(QObject *parent) : QObject(parent) {
+    // Инициализация папки данных
+    m_dataDir = QCoreApplication::applicationDirPath() + "/market_data";
+    QDir dir(m_dataDir);
+    if(!dir.exists()) {
+        if(!dir.mkpath(".")) {
+            qCritical() << "Не удалось создать папку market_data";
+        }
+    }
 
-    // получение данных через WebSocket
-    connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DataStreamer::handleResponse);
+    connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DataStreamer::handleWebSocketMessage);
 
     // Настройка таймера
-    m_timer.setInterval(1000);
+    //m_timer.setInterval(1000);
     // логи по истечению интервала
-    connect(&m_timer, &QTimer::timeout, this, &DataStreamer::logPrice);
-
-    // для единичного запроса по нажатию кнопки
-    //connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DataStreamer::onTextReceived);
+    //connect(&m_timer, &QTimer::timeout, this, &DataStreamer::logPrice);
 }
 
 void DataStreamer::startStream() {
-    /*if(m_webSocket.state() != QAbstractSocket::UnconnectedState) {
-        qDebug() << "Соединение уже активно";
-        return;
-    }
-
-    // Сбрасываем предыдущие подключения
-    disconnect(&m_webSocket, &QWebSocket::connected, nullptr, nullptr);
-
-    connect(&m_webSocket, &QWebSocket::connected, this, [this]() {
-        emit newLogMessage("Старт потока", "WORK");
-        qDebug() << QDateTime::currentDateTime().toString("hh:mm:ss ") << "Старт потока";
-        requestCurrentPrice(); // автозапрос после подключения по webSocket
-    });
-
-    m_webSocket.open(QUrl("wss://stream.binance.com:9443/ws"));*/
-
     m_webSocket.open(QUrl("wss://stream.binance.com:9443/ws/btcusdt@ticker"));
-    m_timer.start();
+    m_minuteTimer.start();
+    m_waitForNewPeriod = true;
+    m_lastTickTime = 0; // Нет данных более 15 секунд
+    m_dataGapDetected = false; // Нет данных более 15 секунд
+
+    //m_webSocket.open(QUrl("wss://stream.binance.com:9443/ws/btcusdt@ticker"));
+    //m_timer.start();
     qDebug() << QDateTime::currentDateTime().toString("hh:mm:ss ") << "Старт потока";
     emit newLogMessage("Старт потока", "WORK");
 }
@@ -43,65 +42,146 @@ void DataStreamer::startStream() {
 void DataStreamer::stopStream() {    
     if(m_webSocket.state() != QAbstractSocket::UnconnectedState) {
         m_webSocket.close();
-        m_timer.stop();
+        m_minuteTimer.stop();
+        m_waitForNewPeriod = true;  // Сбрасываем флаг ожидания
+        //m_timer.stop();
         qDebug() << QDateTime::currentDateTime().toString("hh:mm:ss") << "Соединение закрыто";
         emit newLogMessage("Соединение закрыто", "WORK");
     }
 }
 
-void DataStreamer::handleResponse(const QString &message) {
-    QJsonObject data = QJsonDocument::fromJson(message.toUtf8()).object();
-    if(data.contains("c")) {
-        m_price = data["c"].toString();
+void DataStreamer::testStream() {
+    qDebug() << "Тест: Имитация пропуска данных 20 секунд";
+    checkDataGap(QDateTime::currentMSecsSinceEpoch() - 20000);
+}
+
+void DataStreamer::checkDataGap(qint64 currentTimestamp) {
+    if(m_lastTickTime == 0) {
+        m_lastTickTime = currentTimestamp;
+        return;
     }
-}
 
-void DataStreamer::logPrice() {
-    //qDebug() << QDateTime::currentDateTime().toString("hh:mm:ss ") << "EUR/USD: " << m_price;
-    emit newLogMessage(QString("BTC/USD: %1").arg(m_price), "PRICE");
-}
+    const qint64 gap = currentTimestamp - m_lastTickTime;
 
-/*void DataStreamer::requestCurrentPrice() {
-    if(m_webSocket.state() == QAbstractSocket::ConnectedState) {
-        // запрос для Binance WebSocket API
-        QString request = R"({
-            "method": "SUBSCRIBE",
-            "params": ["eurusdt@ticker"],
-            "id": )" + QString::number(QDateTime::currentSecsSinceEpoch()) + "}";
+    if(gap > MAX_ALLOWED_GAP) {
+        if(!m_dataGapDetected) {
+            qCritical() << "Пропуск данных:"
+                        << gap/1000 << "секунд";
+            m_dataGapDetected = true;
 
-        m_webSocket.sendTextMessage(request);
-        emit newLogMessage("Подписка отправлена", "PRICE");
+            stopStream();
+
+            // Экстренное сохранение
+            /*if(!m_fiveMinuteBuffer.isEmpty()) {
+                saveFiveMinuteData();
+                m_fiveMinuteBuffer.clear();
+            }
+            emit dataGapDetected(gap);*/ // Сигнал для внешних обработчиков
+        }
     } else {
-        emit newLogMessage("Ошибка: нет соединения", "ERROR");
-    }
+        m_dataGapDetected = false;
+    }/*else if(m_dataGapDetected) {
+        qInfo() << "[GAP RESOLVED] Данные восстановлены";
+        m_dataGapDetected = false;
+        emit dataRestored();
+    }*/
+
+    m_lastTickTime = currentTimestamp;
 }
 
-void DataStreamer::onTextReceived(QString message) {
-    // Парсинг JSON
-    QJsonDocument doc = QJsonDocument::fromJson(message.toUtf8());
-    QJsonObject data = doc.object();
+void DataStreamer::handleWebSocketMessage(const QString &message) {
+    const qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
 
-    // Игнорируем служебные сообщения
-    if(data.contains("result") && data["result"].isNull()) { return; }
+    // Проверка пропуска данных более 15 сек
+    checkDataGap(currentTime);
 
-    // 1. Проверяем, что это данные по цене EUR/USDT
-    if(data["e"].toString() == "24hrTicker" && data["s"].toString() == "EURUSDT") {
-        QString price = data["c"].toString(); // Последняя цена
-        qDebug() << "Получена цена:" << price;
-        emit newLogMessage("EUR/USDT: " + price, "PRICE");
+    // парсинг входящего сообщения
+    QJsonObject json = QJsonDocument::fromJson(message.toUtf8()).object();
+    if(!json.contains("E") || !json.contains("c") || !json.contains("v")) return;
 
-        // 2. Отписываемся сразу после получения цены
-        QString unsubscribeMsg = R"({
-            "method": "UNSUBSCRIBE",
-            "params": ["eurusdt@ticker"],
-            "id": )" + QString::number(QDateTime::currentSecsSinceEpoch()) + "}";
+    // извлечение данных тика
+    const qint64 timestamp = json["E"].toVariant().toLongLong();
+    const QDateTime tickTime = QDateTime::fromMSecsSinceEpoch(timestamp);
+    const int currentMinute = tickTime.time().minute();
+    const int currentSecond = tickTime.time().second();
 
-        m_webSocket.sendTextMessage(unsubscribeMsg);
-        emit newLogMessage("Отписка отправлена", "PRICE");
-    } else {
-        qDebug() << "Другое сообщение:" << message;
+    // проверка на начало новой пятиминутки
+    if(m_waitForNewPeriod) {
+        if(currentMinute % 5 == 0) { // Кратно 5 минутам (00, 05, 10...)
+            m_waitForNewPeriod = false;
+            m_currentPeriodStart = timestamp;
+            emit newLogMessage("Начало нового интервала 5 минут", "WORK");
+            qDebug() << "Начало нового 5-минутного периода:"
+                     << tickTime.toString("hh:mm:ss");
+        } else {
+            return; // Пропускаем данные до начала периода
+        }
     }
-}*/
+
+    // проверка перехода на следующую минуту
+    if(!m_waitForNewPeriod) {
+        // Если это первые секунды новой минуты (00-03 сек)
+        if(currentSecond <= 3 && currentMinute != m_lastProcessedMinute) {
+            // Переносим данные в 5-минутный буфер
+            if(!m_minuteBuffer.isEmpty()) {
+                m_fiveMinuteBuffer.append(m_minuteBuffer);
+                m_minuteBuffer.clear();
+            }
+            m_lastProcessedMinute = currentMinute;
+            qDebug() << "Начало минуты:" << tickTime.toString("hh:mm:ss");
+        }
+
+        // проверка завершения 5-минутного периода
+        if((timestamp - m_currentPeriodStart) >= 300000) { // Ровно 5 минут
+            if(!m_fiveMinuteBuffer.isEmpty()) {
+                saveFiveMinuteData();
+                m_fiveMinuteBuffer.clear();
+                qDebug() << "Прошло 5 минут:" << tickTime.toString("hh:mm:ss") << "сохранение.";
+            }
+            m_waitForNewPeriod = true; // сброс флага для нового периода
+            return;
+        }
+    }
+
+    // сохранение тика в буфер
+    m_minuteBuffer.append({
+        .timestamp = timestamp,
+        .price = json["c"].toString().toDouble(),
+        .volume = json["v"].toString().toDouble()
+    });
+}
+
+    //QDateTime lastDt = QDateTime::fromMSecsSinceEpoch(m_minuteBuffer.last().timestamp);
+    //qDebug() << "Текущая секунда:" << lastDt.toString("hh:mm:ss");
+    //qDebug() << "Текущее время буфера:" << lastDt.toString("hh:mm:ss");
+    //qDebug() << "Размер буфера:" << m_minuteBuffer.size();
+    //qDebug() << "Последняя валидная цена:" << m_lastPrice;
+
+void DataStreamer::saveFiveMinuteData() {
+    if(m_fiveMinuteBuffer.isEmpty()) {
+        emit newLogMessage("Нет данных для сохранения", "WARNING");
+        return;
+    }
+
+    QString fileName = QString("%1/%2.bin")
+                           .arg(m_dataDir)
+                           .arg(m_fiveMinuteBuffer.first().first().timestamp);
+
+    QFile file(fileName);
+    if(file.open(QIODevice::WriteOnly)) {
+        QDataStream out(&file);
+        for(const auto& minute : m_fiveMinuteBuffer) {
+            for(const auto& tick : minute) {
+                out << tick.timestamp << tick.price << tick.volume;
+            }
+        }
+        file.close();
+        emit newLogMessage(QString("Сохранен блок: %1 записей")
+                               .arg(m_fiveMinuteBuffer.size() * 60), "SUCCESS");
+    } else {
+        emit newLogMessage(QString("Ошибка сохранения: %1").arg(file.errorString()), "ERROR");
+    }
+}
 
 DataStreamer::~DataStreamer() {
     stopStream();

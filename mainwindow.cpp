@@ -23,8 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_engine(new TradingEngine(this)), // НЕ УДАЛЯТЬ!!!!  для класса TradingEngine
     m_network(new QNetworkAccessManager(this)),
     m_dataStreamer(new DataStreamer(this)),
-    m_botToken(KeyManager::instance().loadBotToken()),
-    m_chatId(KeyManager::instance().loadChatId()),
+    //m_botToken(KeyManager::instance().loadBotToken()),
+    //m_chatId(KeyManager::instance().loadChatId()),
     m_logger(new Logger()),
     m_viewer(new BinViewer(this))
 {
@@ -49,13 +49,15 @@ MainWindow::MainWindow(QWidget *parent)
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     startButton = new QPushButton("Старт", this);
     stopButton = new QPushButton("Стоп", this);
-    logsButton = new QPushButton("Показать логи", this);
-    viewBinButton = new QPushButton("Файлы bin", this);
+    logsButton = new QPushButton("Логи", this);
+    viewBinButton = new QPushButton("Ф bin", this);
+    testButton = new QPushButton("Тест", this);
 
     buttonLayout->addWidget(startButton);
     buttonLayout->addWidget(stopButton);
     buttonLayout->addWidget(logsButton);
     buttonLayout->addWidget(viewBinButton);
+    buttonLayout->addWidget(testButton);
     buttonLayout->setAlignment(Qt::AlignLeft);
 
     // Создаём поле для логов
@@ -73,6 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(startButton, &QPushButton::clicked, this, &MainWindow::onStartButtonClicked);
     connect(stopButton, &QPushButton::clicked, this, &MainWindow::onStopButtonClicked);
     connect(logsButton, &QPushButton::clicked, this, &MainWindow::showLogsWindow);
+    connect(testButton, &QPushButton::clicked, this, &MainWindow::testSignalClicked);
 
     // Подключаем сигнал TradingEngine для логов
     connect(m_engine, &TradingEngine::newLogMessage, this, &MainWindow::logMessage);
@@ -168,6 +171,10 @@ void MainWindow::onStopButtonClicked() {
     //logMessage("Бот остановлен!", "INFO");
     //sendTelegramResult("EUR/USD", "SL", 1.2650, 1.2450, 100, "4мин");
     m_dataStreamer->DataStreamer::stopStream();
+}
+
+void MainWindow::testSignalClicked() {
+    m_dataStreamer->DataStreamer::testStream();
 }
 
 void MainWindow::onBinViewerClicked() {

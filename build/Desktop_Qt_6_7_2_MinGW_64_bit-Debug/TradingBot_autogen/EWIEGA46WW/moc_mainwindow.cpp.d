@@ -5,7 +5,6 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/ProjectsQt/TradingBot/datastreamer.h \
   C:/ProjectsQt/TradingBot/tradingengine.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QDateTime \
-  C:/Qt/6.7.2/mingw_64/include/QtCore/QElapsedTimer \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QFile \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QFlags \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonArray \
@@ -18,6 +17,7 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/Qt/6.7.2/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QUrl \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QVariant \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/QVector \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
@@ -57,7 +57,6 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qdir.h \
-  C:/Qt/6.7.2/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qfile.h \
@@ -152,6 +151,7 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qvector.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \

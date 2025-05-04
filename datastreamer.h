@@ -4,7 +4,13 @@
 #include <QObject>
 #include <QWebSocket>
 #include <QTimer>
-#include <QElapsedTimer>
+#include <QVector>
+
+struct TickData {
+    qint64 timestamp;
+    double price;
+    double volume;
+};
 
 class DataStreamer : public QObject {
     Q_OBJECT
@@ -14,20 +20,32 @@ public:
 
     void startStream();
     void stopStream();
-    //void requestCurrentPrice(); // для запроса один раз
+    void testStream();
 
 signals:
     void newLogMessage(const QString &message, const QString &type); // Для логов, без реализации! Так нужно для связи между классами
 
 private slots:
-    void handleResponse(const QString &message);
-    void logPrice();
-    //void onTextReceived(QString message); // получить ответ на запрос один раз
+    void handleWebSocketMessage(const QString& message);
 
 private:
+    void saveFiveMinuteData();
+    void checkDataGap(qint64 currentTimestamp); // Нет данных более 15 секунд
+
     QWebSocket m_webSocket;
-    QTimer m_timer;
-    QString m_price;
+    QTimer m_minuteTimer;
+    QVector<TickData> m_minuteBuffer;
+    QVector<QVector<TickData>> m_fiveMinuteBuffer;
+    double m_lastPrice = 0;
+
+    QString m_dataDir = "market_data"; // Папка для сохранения бин
+    bool m_waitForNewPeriod = true;
+    qint64 m_currentPeriodStart = 0;
+    int m_lastProcessedMinute = -1;
+
+    qint64 m_lastTickTime = 0; // Нет данных более 15 секунд
+    bool m_dataGapDetected = false; // Нет данных более 15 секунд
+    const qint64 MAX_ALLOWED_GAP = 15000; // Нет данных более 15 секунд
 };
 
 #endif // DATASTREAMER_H

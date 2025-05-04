@@ -26,7 +26,7 @@ public:
     ~MainWindow();
 
     // Константы для типов сообщений
-    static constexpr auto INFO = "INFO";
+    /*static constexpr auto INFO = "INFO";
     static constexpr auto WARNING = "WARNING";
     static constexpr auto ERROR = "ERROR";
     static constexpr auto WORK = "WORK";
@@ -34,7 +34,7 @@ public:
     static constexpr auto SYSTEM = "SYSTEM";
     static constexpr auto OPEN = "OPEN";
     static constexpr auto RESULT = "RESULT";
-    static constexpr auto PRICE = "PRICE";
+    static constexpr auto PRICE = "PRICE";*/
 
     void sendTelegramSignal(const QString &currencyPair, const QString &direction, const QString &duration,
                             double price, double takeProfit, double stopLoss);
@@ -47,6 +47,7 @@ private slots:
     void logMessage(const QString &message, const QString &type); // Логирование в окно
     void showLogsWindow(); // Логирование в файл
     void onBinViewerClicked();
+    void testSignalClicked();
 
 private:
     //void setupBotToken(); // запись токена нужна один раз
@@ -56,6 +57,7 @@ private:
     QTextEdit *logTextEdit;
     QPushButton *startButton;
     QPushButton *stopButton;
+    QPushButton *testButton;
 
     // Инициализация клавиатуры в Telegram канале
     void initTelegramKeyboard();

@@ -48,5 +48,15 @@
         "message": "Программа остановлена",
         "timestamp": "23:52:09",
         "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "23:58:29",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "23:59:25",
+        "type": "SYSTEM"
     }
 ]
