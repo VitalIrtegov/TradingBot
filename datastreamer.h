@@ -39,6 +39,10 @@ private:
     double m_lastPrice = 0;
 
     QString m_dataDir = "market_data"; // Папка для сохранения бин
+    QString m_tasksDir = "tasks"; // Папка для задач
+    QString m_restDataDir = "rest_data"; // Папка для скачанные 5-минутки
+    QString m_archiveDir = "archive"; // Папка для выполненные задачи
+
     bool m_waitForNewPeriod = true;
     qint64 m_currentPeriodStart = 0;
     int m_lastProcessedMinute = -1;
@@ -46,6 +50,10 @@ private:
     qint64 m_lastTickTime = 0; // Нет данных более 15 секунд
     bool m_dataGapDetected = false; // Нет данных более 15 секунд
     const qint64 MAX_ALLOWED_GAP = 15000; // Нет данных более 15 секунд
+
+    void createGapTask(qint64 eventTimestamp);
+    void testCreateGapTask(qint64 serverTime);
+    QString formatTimestamp(qint64 timestamp) const;
 };
 
 #endif // DATASTREAMER_H

@@ -29,6 +29,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         logger.h logger.cpp
         datastreamer.h datastreamer.cpp
         binviewer.h binviewer.cpp
+        taskmanager.h taskmanager.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET TradingBot APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

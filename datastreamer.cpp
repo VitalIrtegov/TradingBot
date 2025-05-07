@@ -7,15 +7,40 @@
 #include <QDateTime>
 #include <QDir>
 #include <QCoreApplication>
+#include <QSaveFile>
 
 DataStreamer::DataStreamer(QObject *parent) : QObject(parent) {
-    // Инициализация папки данных
-    m_dataDir = QCoreApplication::applicationDirPath() + "/market_data";
-    QDir dir(m_dataDir);
-    if(!dir.exists()) {
-        if(!dir.mkpath(".")) {
-            qCritical() << "Не удалось создать папку market_data";
+    QString basePath = QCoreApplication::applicationDirPath();
+
+    // Инициализация путей
+    m_dataDir = basePath + "/market_data";
+    m_tasksDir = basePath + "/tasks";
+    m_restDataDir = basePath + "/rest_data";
+    m_archiveDir = basePath + "/archive";
+
+    // Лямбда для создания папки
+    auto ensureDirExists = [](const QString &path) -> bool {
+        QDir dir(path);
+        if(!dir.exists()) {
+            if(!dir.mkpath(".")) {
+                qCritical() << "Не удалось создать папку market_data";
+                return false;
+            }
+            qDebug() << "Создана папка:" << path;
+            return true;
         }
+        return true; // Папка уже существует
+    };
+
+    // Создаём все папки
+    bool allOk = true;
+    allOk &= ensureDirExists(m_dataDir);
+    allOk &= ensureDirExists(m_tasksDir);
+    allOk &= ensureDirExists(m_restDataDir);
+    allOk &= ensureDirExists(m_archiveDir);
+
+    if (!allOk) {
+        emit newLogMessage("Ошибка инициализации папок", "FATAL");
     }
 
     connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DataStreamer::handleWebSocketMessage);
@@ -24,6 +49,10 @@ DataStreamer::DataStreamer(QObject *parent) : QObject(parent) {
     //m_timer.setInterval(1000);
     // логи по истечению интервала
     //connect(&m_timer, &QTimer::timeout, this, &DataStreamer::logPrice);
+}
+
+DataStreamer::~DataStreamer() {
+    stopStream();
 }
 
 void DataStreamer::startStream() {
@@ -70,6 +99,8 @@ void DataStreamer::checkDataGap(qint64 currentTimestamp) {
             m_dataGapDetected = true;
 
             stopStream();
+
+            testCreateGapTask(currentTimestamp);
 
             // Экстренное сохранение
             /*if(!m_fiveMinuteBuffer.isEmpty()) {
@@ -183,6 +214,92 @@ void DataStreamer::saveFiveMinuteData() {
     }
 }
 
-DataStreamer::~DataStreamer() {
-    stopStream();
+/*void DataStreamer::createGapTask(qint64 eventTimestamp) {
+    // 1. Вычисляем 5-минутный интервал
+    const qint64 interval = 5 * 60 * 1000; // 5 минут в мс
+    qint64 periodStart = (eventTimestamp / interval) * interval;
+    qint64 periodEnd = periodStart + interval;
+
+    // 2. Формируем задачу
+    QJsonObject task {
+                     {"symbol", "BTCUSDT"},
+                     {"created_at", QDateTime::currentMSecsSinceEpoch()},
+                     {"start", periodStart},
+                     {"end", periodEnd},
+                     {"status", "pending"},
+                     {"timeframe", "1m"},
+                     {"candles_required", "5"}
+    };
+
+    // 3. Генерируем имя файла
+    QString fileName = QString("%1_%2.json").arg(periodStart).arg(periodEnd);
+    QString filePath = m_tasksDir + "/" + fileName;
+
+    // 4. Атомарное сохранение
+    QSaveFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly)) {
+        emit newLogMessage(
+            QString("Ошибка создания файла для периода %1 - %2")
+                .arg(formatTimestamp(periodStart))
+                .arg(formatTimestamp(periodEnd)),
+            "ERROR"
+            );
+        return;
+    }
+
+    file.write(QJsonDocument(task).toJson());
+    if (!file.commit()) {
+        emit newLogMessage("Ошибка сохранения задачи", "ERROR");
+        return;
+    }
+
+    // 5. Логирование
+    emit newLogMessage(
+        QString("Создана задача: %1 (%2 - %3)")
+            .arg(fileName)
+            .arg(formatTimestamp(periodStart))
+            .arg(formatTimestamp(periodEnd)),
+        "WORK"
+        );
+}*/
+
+// Тестовый метод
+/*void DataStreamer::testCreateGapTask(qint64 serverTime) {
+    // 1. Вызываем основной метод
+    createGapTask(serverTime);
+
+    // 2. Проверяем результат
+    qint64 interval = 5 * 60 * 1000;
+    qint64 expectedStart = (serverTime / interval) * interval;
+    qint64 expectedEnd = expectedStart + interval;
+
+    QString expectedFileName = QString("%1_%2.json")
+                                   .arg(expectedStart)
+                                   .arg(expectedEnd);
+
+    QString filePath = m_tasksDir + "/" + expectedFileName;
+
+    if (QFile::exists(filePath)) {
+        emit newLogMessage(
+            QString("Тест пройден: %1 (%2 - %3)")
+                .arg(expectedFileName)
+                .arg(formatTimestamp(expectedStart))
+                .arg(formatTimestamp(expectedEnd)),
+            "TEST_SUCCESS"
+            );
+    } else {
+        emit newLogMessage(
+            QString("Тест не пройден: файл для периода %1 - %2 не создан")
+                .arg(formatTimestamp(expectedStart))
+                .arg(formatTimestamp(expectedEnd)),
+            "TEST_FAIL"
+            );
+    }
+}*/
+
+// вывод в лог времени в понятном формате
+QString DataStreamer::formatTimestamp(qint64 timestamp) const {
+    // Убедимся, что timestamp в миллисекундах
+    QDateTime dt = QDateTime::fromMSecsSinceEpoch(timestamp);
+    return dt.toString("dd.MM.yyyy hh:mm:ss");
 }

@@ -121,6 +121,14 @@ build CMakeFiles/TradingBot.dir/binviewer.cpp.obj: CXX_COMPILER__TradingBot_unsc
   OBJECT_DIR = CMakeFiles\TradingBot.dir
   OBJECT_FILE_DIR = CMakeFiles\TradingBot.dir
 
+build CMakeFiles/TradingBot.dir/taskmanager.cpp.obj: CXX_COMPILER__TradingBot_unscanned_Debug C$:/ProjectsQt/TradingBot/taskmanager.cpp || cmake_object_order_depends_target_TradingBot
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_WEBSOCKETS_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\TradingBot.dir\taskmanager.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/include -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui -isystem C:/Qt/6.7.2/mingw_64/include/QtNetwork -isystem C:/Qt/6.7.2/mingw_64/include/QtWebSockets
+  OBJECT_DIR = CMakeFiles\TradingBot.dir
+  OBJECT_FILE_DIR = CMakeFiles\TradingBot.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TradingBot
@@ -129,7 +137,7 @@ build CMakeFiles/TradingBot.dir/binviewer.cpp.obj: CXX_COMPILER__TradingBot_unsc
 #############################################
 # Link the executable TradingBot.exe
 
-build TradingBot.exe: CXX_EXECUTABLE_LINKER__TradingBot_Debug CMakeFiles/TradingBot.dir/TradingBot_autogen/mocs_compilation.cpp.obj CMakeFiles/TradingBot.dir/main.cpp.obj CMakeFiles/TradingBot.dir/mainwindow.cpp.obj CMakeFiles/TradingBot.dir/tradingengine.cpp.obj CMakeFiles/TradingBot.dir/qaesencryption.cpp.obj CMakeFiles/TradingBot.dir/keymanager.cpp.obj CMakeFiles/TradingBot.dir/logger.cpp.obj CMakeFiles/TradingBot.dir/datastreamer.cpp.obj CMakeFiles/TradingBot.dir/binviewer.cpp.obj | C$:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.2/mingw_64/lib/libQt6WebSockets.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Network.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a || TradingBot_autogen TradingBot_autogen_timestamp_deps
+build TradingBot.exe: CXX_EXECUTABLE_LINKER__TradingBot_Debug CMakeFiles/TradingBot.dir/TradingBot_autogen/mocs_compilation.cpp.obj CMakeFiles/TradingBot.dir/main.cpp.obj CMakeFiles/TradingBot.dir/mainwindow.cpp.obj CMakeFiles/TradingBot.dir/tradingengine.cpp.obj CMakeFiles/TradingBot.dir/qaesencryption.cpp.obj CMakeFiles/TradingBot.dir/keymanager.cpp.obj CMakeFiles/TradingBot.dir/logger.cpp.obj CMakeFiles/TradingBot.dir/datastreamer.cpp.obj CMakeFiles/TradingBot.dir/binviewer.cpp.obj CMakeFiles/TradingBot.dir/taskmanager.cpp.obj | C$:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.2/mingw_64/lib/libQt6WebSockets.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Network.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a || TradingBot_autogen TradingBot_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.7.2/mingw_64/lib/libQt6WebSockets.a  -lCrypt32  C:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  C:/Qt/6.7.2/mingw_64/lib/libQt6Network.a  C:/Qt/6.7.2/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

@@ -372,6 +372,12 @@
 			null
 		],
 		[
+			"C:/ProjectsQt/TradingBot/taskmanager.h",
+			"MU",
+			"EWIEGA46WW/moc_taskmanager.cpp",
+			null
+		],
+		[
 			"C:/ProjectsQt/TradingBot/tradingengine.h",
 			"MU",
 			"EWIEGA46WW/moc_tradingengine.cpp",
@@ -460,6 +466,7 @@
 		[ "C:/ProjectsQt/TradingBot/main.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/mainwindow.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/qaesencryption.cpp", "MU", null ],
+		[ "C:/ProjectsQt/TradingBot/taskmanager.cpp", "MU", null ],
 		[ "C:/ProjectsQt/TradingBot/tradingengine.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
