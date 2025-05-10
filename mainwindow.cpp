@@ -174,7 +174,7 @@ void MainWindow::onStopButtonClicked() {
 }
 
 void MainWindow::testSignalClicked() {
-    m_dataStreamer->DataStreamer::testStream();
+    //m_dataStreamer->DataStreamer::testStream();Reconnect
 }
 
 void MainWindow::onBinViewerClicked() {

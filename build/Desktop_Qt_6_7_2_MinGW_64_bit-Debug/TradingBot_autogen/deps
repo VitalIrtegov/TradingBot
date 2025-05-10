@@ -18,6 +18,8 @@ TradingBot_autogen/timestamp: \
 	C:/ProjectsQt/TradingBot/mainwindow.h \
 	C:/ProjectsQt/TradingBot/qaesencryption.cpp \
 	C:/ProjectsQt/TradingBot/qaesencryption.h \
+	C:/ProjectsQt/TradingBot/taskmanager.cpp \
+	C:/ProjectsQt/TradingBot/taskmanager.h \
 	C:/ProjectsQt/TradingBot/tradingengine.cpp \
 	C:/ProjectsQt/TradingBot/tradingengine.h \
 	C:/Qt/6.7.2/mingw_64/include/QtCore/QByteArray \

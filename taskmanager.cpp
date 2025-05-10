@@ -1,10 +1,16 @@
 #include "taskmanager.h"
 #include <QSaveFile>
 #include <QDir>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 TaskManager::TaskManager(const QString& tasksDir, QObject* parent)
     : QObject(parent), m_tasksDir(tasksDir) {
     QDir().mkpath(m_tasksDir);
+}
+
+QString TaskManager::tasksDir() const {
+    return m_tasksDir;
 }
 
 bool TaskManager::createTask(qint64 eventTimestamp) {
@@ -45,7 +51,7 @@ bool TaskManager::createTask(qint64 eventTimestamp) {
     file.write(QJsonDocument(task).toJson());
     if (!file.commit()) {
         emit newLogMessage("Ошибка сохранения задачи", "ERROR");
-        return;
+        return false;
     }
 
     // логирование
@@ -61,7 +67,7 @@ bool TaskManager::createTask(qint64 eventTimestamp) {
 }
 
 // вывод в лог времени в понятном формате
-QString DataStreamer::formatTimestamp(qint64 timestamp) const {
+QString TaskManager::formatTimestamp(qint64 timestamp) const {
     // Убедимся, что timestamp в миллисекундах
     QDateTime dt = QDateTime::fromMSecsSinceEpoch(timestamp);
     return dt.toString("dd.MM.yyyy hh:mm:ss");

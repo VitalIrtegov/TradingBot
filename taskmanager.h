@@ -7,11 +7,15 @@
 class TaskManager : public QObject {
     Q_OBJECT
 public:
-    explicit TaskManager(QObject *parent = nullptr);
+    explicit TaskManager(const QString& tasksDir, QObject* parent = nullptr);
 
 public:
-    // метод создания задач
     bool createTask(qint64 eventTimestamp);
+    QString tasksDir() const;
+
+signals:
+    void newLogMessage(const QString &message, const QString &type);
+
 private:
     QString m_tasksDir;
     QString formatTimestamp(qint64 timestamp) const;

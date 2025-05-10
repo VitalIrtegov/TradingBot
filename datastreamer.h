@@ -21,12 +21,15 @@ public:
     void startStream();
     void stopStream();
     void testStream();
+    void enableTestMode(); // Для симуляции переподключения
+    void testReconnect(int testMinutes); // переподключение
 
 signals:
     void newLogMessage(const QString &message, const QString &type); // Для логов, без реализации! Так нужно для связи между классами
 
 private slots:
     void handleWebSocketMessage(const QString& message);
+    void attemptReconnect(); // переподключение
 
 private:
     void saveFiveMinuteData();
@@ -51,9 +54,12 @@ private:
     bool m_dataGapDetected = false; // Нет данных более 15 секунд
     const qint64 MAX_ALLOWED_GAP = 15000; // Нет данных более 15 секунд
 
-    void createGapTask(qint64 eventTimestamp);
-    void testCreateGapTask(qint64 serverTime);
-    QString formatTimestamp(qint64 timestamp) const;
+    QTimer m_reconnectTimer;
+    void onDisconnected();
+    void onConnected();
+    qint64 m_lastValidDataTime = 0;
+    QTimer m_quickCheckTimer;
+    void checkConnectionNow();
 };
 
 #endif // DATASTREAMER_H

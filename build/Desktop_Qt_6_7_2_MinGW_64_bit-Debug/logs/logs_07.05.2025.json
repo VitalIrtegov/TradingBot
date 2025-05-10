@@ -1,0 +1,12 @@
+[
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:14:17",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:16:37",
+        "type": "SYSTEM"
+    }
+]
