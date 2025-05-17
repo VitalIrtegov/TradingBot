@@ -6,6 +6,7 @@
 #include "Logger.h"
 #include "datastreamer.h"
 #include "binviewer.h"
+#include "taskmanager.h"
 
 #include <QPushButton>
 #include <QTextEdit>
@@ -80,6 +81,7 @@ private:
 
     BinViewer *m_viewer;
     QPushButton *viewBinButton;
+    TaskManager *m_taskManager;
 };
 
 #endif // MAINWINDOW_H

@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_engine(new TradingEngine(this)), // НЕ УДАЛЯТЬ!!!!  для класса TradingEngine
     m_network(new QNetworkAccessManager(this)),
     m_dataStreamer(new DataStreamer(this)),
+    m_taskManager(new TaskManager(m_dataStreamer, "tasks", this)),  // Передаём объект DataStreamer в класс TaskManager
     //m_botToken(KeyManager::instance().loadBotToken()),
     //m_chatId(KeyManager::instance().loadChatId()),
     m_logger(new Logger()),
@@ -35,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     //resize(800, 600); // по умолчанию
 
     // Фиксируем размер окна (ширина, высота)
-    setFixedSize(800, 600);
+    setFixedSize(640, 480);
 
     // Или задаём минимальный/максимальный размер
     setMinimumSize(640, 480);
@@ -77,10 +78,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(logsButton, &QPushButton::clicked, this, &MainWindow::showLogsWindow);
     connect(testButton, &QPushButton::clicked, this, &MainWindow::testSignalClicked);
 
-    // Подключаем сигнал TradingEngine для логов
+    // Получаем сигналы от TradingEngine для логов
     connect(m_engine, &TradingEngine::newLogMessage, this, &MainWindow::logMessage);
 
-    // Подключаем сигналы DataStreamer для логов
+    // Получаем сигналы от DataStreamer для логов
     connect(m_dataStreamer, &DataStreamer::newLogMessage, this, &MainWindow::logMessage);
 
     connect(viewBinButton, &QPushButton::clicked, this, &MainWindow::onBinViewerClicked);

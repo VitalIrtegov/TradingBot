@@ -15,7 +15,7 @@ struct TickData {
 class DataStreamer : public QObject {
     Q_OBJECT
 public:
-    explicit DataStreamer(QObject *parent = nullptr);
+    explicit DataStreamer(QObject* parent = nullptr);
     ~DataStreamer();
 
     void startStream();
@@ -26,6 +26,7 @@ public:
 
 signals:
     void newLogMessage(const QString &message, const QString &type); // Для логов, без реализации! Так нужно для связи между классами
+    void needCheckMissingData(const QString &m_dataDir);
 
 private slots:
     void handleWebSocketMessage(const QString& message);
@@ -54,12 +55,11 @@ private:
     bool m_dataGapDetected = false; // Нет данных более 15 секунд
     const qint64 MAX_ALLOWED_GAP = 15000; // Нет данных более 15 секунд
 
-    QTimer m_reconnectTimer;
-    void onDisconnected();
-    void onConnected();
-    qint64 m_lastValidDataTime = 0;
-    QTimer m_quickCheckTimer;
+    QTimer m_reconnectTimer; // 55 секунд
+    QTimer m_quickCheckTimer; // 5 секунд
+    qint64 m_lastValidDataTime = 0;    
     void checkConnectionNow();
+
 };
 
 #endif // DATASTREAMER_H

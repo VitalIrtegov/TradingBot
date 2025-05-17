@@ -3,5 +3,375 @@
         "message": "Программа остановлена",
         "timestamp": "00:10:13",
         "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "11:11:18",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "11:12:11",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "11:12:17",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "11:16:39",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "11:18:51",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "11:18:53",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "11:20:39",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "11:22:46",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "12:01:04",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "12:06:08",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "12:15:42",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "12:29:46",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "12:31:20",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "12:32:31",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "13:11:23",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "13:12:37",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "13:13:16",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "13:14:23",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "13:15:46",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "13:17:09",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "13:20:00",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "13:47:26",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "14:04:27",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "14:07:37",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "14:09:24",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "14:14:12",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "14:33:44",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "14:43:15",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "15:04:45",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "15:07:31",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "15:07:38",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "15:36:23",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:07:35",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:08:44",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:09:14",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:10:24",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:11:13",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:31:35",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:48:01",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:49:58",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:52:31",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:52:33",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:52:54",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "19:16:54",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "19:34:06",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "19:50:45",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "19:55:34",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "19:57:51",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "19:58:03",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "20:00:09",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "20:04:39",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "20:26:51",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "20:31:28",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "20:38:46",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "20:38:57",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:04:48",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:11:52",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:13:00",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:14:22",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:15:49",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:17:49",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:18:53",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:22:54",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:31:17",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:32:10",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:32:21",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:34:26",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:35:36",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:37:39",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:38:56",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:40:47",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:41:53",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "21:44:22",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:45:38",
+        "type": "SYSTEM"
     }
 ]

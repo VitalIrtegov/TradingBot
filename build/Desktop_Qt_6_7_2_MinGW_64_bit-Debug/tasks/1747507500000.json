@@ -1,0 +1,9 @@
+{
+    "candles_required": "5",
+    "created_at": 1747497134789,
+    "end": 1747507800000,
+    "start": 1747507500000,
+    "status": "pending",
+    "symbol": "BTCUSDT",
+    "timeframe": "1m"
+}

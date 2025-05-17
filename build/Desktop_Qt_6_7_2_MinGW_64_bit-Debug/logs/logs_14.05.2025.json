@@ -1,0 +1,62 @@
+[
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:35:29",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "18:46:23",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "18:54:22",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "19:01:15",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "19:23:53",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "19:53:20",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "20:15:55",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "20:18:54",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "20:19:11",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "20:26:32",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа запущена",
+        "timestamp": "20:29:59",
+        "type": "SYSTEM"
+    },
+    {
+        "message": "Программа остановлена",
+        "timestamp": "21:06:15",
+        "type": "SYSTEM"
+    }
+]

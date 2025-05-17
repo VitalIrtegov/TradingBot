@@ -3,6 +3,7 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/ProjectsQt/TradingBot/Logger.h \
   C:/ProjectsQt/TradingBot/binviewer.h \
   C:/ProjectsQt/TradingBot/datastreamer.h \
+  C:/ProjectsQt/TradingBot/taskmanager.h \
   C:/ProjectsQt/TradingBot/tradingengine.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QFile \

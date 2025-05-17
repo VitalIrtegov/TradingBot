@@ -9,7 +9,9 @@
 #include <QCoreApplication>
 #include <QSaveFile>
 
-DataStreamer::DataStreamer(QObject *parent) : QObject(parent) {
+
+DataStreamer::DataStreamer(QObject* parent) : QObject(parent) {
+
     QString basePath = QCoreApplication::applicationDirPath();
 
     // Инициализация путей
@@ -43,14 +45,14 @@ DataStreamer::DataStreamer(QObject *parent) : QObject(parent) {
         emit newLogMessage("Ошибка инициализации папок", "FATAL");
     }
 
+    // поток данных
     connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DataStreamer::handleWebSocketMessage);
 
-    // таймер для переподключения каждые 2 минуты
-    //m_reconnectTimer.setInterval(120000);
-    m_reconnectTimer.setInterval(55000); // 55 секунд
+    //m_reconnectTimer.setInterval(120000); // таймер для переподключения каждые 2 минуты
+    m_reconnectTimer.setInterval(55000); // 55 секунд, длинная проверка связи
     connect(&m_reconnectTimer, &QTimer::timeout, this, &DataStreamer::attemptReconnect);
 
-    m_quickCheckTimer.setInterval(5000); // 5 секунд
+    m_quickCheckTimer.setInterval(5000); // 5 секунд, короткая проверка связи
     connect(&m_quickCheckTimer, &QTimer::timeout, this, &DataStreamer::checkConnectionNow);
 
     /*connect(this, &DataStreamer::startStream, [this](){
@@ -60,11 +62,6 @@ DataStreamer::DataStreamer(QObject *parent) : QObject(parent) {
     // Отслеживание состояние WebSocket
     //connect(&m_webSocket, &QWebSocket::connected, this, &DataStreamer::onConnected);
     //connect(&m_webSocket, &QWebSocket::disconnected, this, &DataStreamer::onDisconnected);
-
-    // Настройка таймера
-    //m_timer.setInterval(1000);
-    // логи по истечению интервала
-    //connect(&m_timer, &QTimer::timeout, this, &DataStreamer::logPrice);
 
     m_reconnectTimer.start();
 }
@@ -82,7 +79,6 @@ void DataStreamer::startStream() {
 
     //m_lastValidDataTime = QDateTime::currentMSecsSinceEpoch();
     //m_reconnectTimer.start();
-
     //m_webSocket.open(QUrl("wss://stream.binance.com:9443/ws/btcusdt@ticker"));
     //m_timer.start();
     qDebug() << QDateTime::currentDateTime().toString("hh:mm:ss") << "Попытка соединения";
@@ -100,11 +96,6 @@ void DataStreamer::stopStream() {
         qDebug() << QDateTime::currentDateTime().toString("hh:mm:ss") << "Соединение закрыто";
         emit newLogMessage("Соединение закрыто", "WORK");
     }
-}
-
-void DataStreamer::testStream() {
-    qDebug() << "Тест: Имитация пропуска данных 20 секунд";
-    checkDataGap(QDateTime::currentMSecsSinceEpoch() - 20000);
 }
 
 void DataStreamer::checkDataGap(qint64 currentTimestamp) {
@@ -126,6 +117,12 @@ void DataStreamer::checkDataGap(qint64 currentTimestamp) {
             qDebug() << "Отсутствовали данные 15 сек!";
             emit newLogMessage("Отсутствовали данные 15 сек!", "WORK");
 
+            // Сбрасываем все буферы
+            m_minuteBuffer.clear(); // очищаем минутный буфер
+            m_fiveMinuteBuffer.clear(); // очищаем пятиминутный буфер
+            //m_waitForNewPeriod = true; // сбрасываем флаг ожидания периода
+            //m_lastProcessedMinute = -1; // сбрасываем счетчик минут
+
             //m_reconnectTimer.start(); // старт таймера переподключения
         }
     } else {
@@ -137,6 +134,7 @@ void DataStreamer::checkDataGap(qint64 currentTimestamp) {
 
 void DataStreamer::handleWebSocketMessage(const QString &message) {
     m_lastValidDataTime = QDateTime::currentMSecsSinceEpoch(); // валидное время для контроля свзи
+
     const qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
 
     // Проверка пропуска данных более 15 сек
@@ -158,7 +156,7 @@ void DataStreamer::handleWebSocketMessage(const QString &message) {
             m_waitForNewPeriod = false;
             m_currentPeriodStart = timestamp;
             emit newLogMessage("Начало нового интервала 5 минут", "WORK");
-            qDebug() << "Начало нового 5-минутного периода:"
+            qDebug() << "Начало нового интервала 5 минут:"
                      << tickTime.toString("hh:mm:ss");
         } else {
             return; // Пропускаем данные до начала периода
@@ -175,7 +173,7 @@ void DataStreamer::handleWebSocketMessage(const QString &message) {
                 m_minuteBuffer.clear();
             }
             m_lastProcessedMinute = currentMinute;
-            qDebug() << "Начало минуты:" << tickTime.toString("hh:mm:ss");
+            //qDebug() << "Начало минуты:" << tickTime.toString("hh:mm:ss");
         }
 
         // проверка завершения 5-минутного периода
@@ -210,9 +208,16 @@ void DataStreamer::saveFiveMinuteData() {
         return;
     }
 
-    QString fileName = QString("%1/%2.bin")
-                           .arg(m_dataDir)
-                           .arg(m_fiveMinuteBuffer.first().first().timestamp);
+    // Берем время первого тика и выравниваем по 5 минутам
+    qint64 firstTickTime = m_fiveMinuteBuffer.first().first().timestamp;
+    const qint64 fiveMinutesMs = 5 * 60 * 1000;
+    qint64 alignedTime = (firstTickTime / fiveMinutesMs) * fiveMinutesMs;
+
+    // формирование имени для сохранения
+    QString fileName = QString("%1/%2.bin").arg(m_dataDir).arg(alignedTime);
+    // Используем текущее время для имени файла вместо времени первого тика
+    //qint64 fileTimestamp = (QDateTime::currentMSecsSinceEpoch() / 300000) * 300000;
+    //QString fileName = QString("%1/%2.bin").arg(m_dataDir).arg(fileTimestamp);
 
     QFile file(fileName);
     if(file.open(QIODevice::WriteOnly)) {
@@ -230,7 +235,7 @@ void DataStreamer::saveFiveMinuteData() {
     }
 }
 
-// 3. Попытка переподключения
+// Попытка переподключения
 void DataStreamer::attemptReconnect() {
     qint64 now = QDateTime::currentMSecsSinceEpoch();
     //if(m_webSocket.state() == QAbstractSocket::ConnectedState) {
@@ -238,12 +243,14 @@ void DataStreamer::attemptReconnect() {
             //qDebug() << "отключено";
             startStream();
             m_quickCheckTimer.start();
-        } else {
-            //qDebug() << "подключено";
-        }
+        }/* else {
+            qDebug() << "подключено";
+        }*/
     //}
+       emit needCheckMissingData(m_dataDir); // вызываем проверку задач
 }
 
+// короткая проверка статуса
 void DataStreamer::checkConnectionNow() {
     bool isConnected = (m_webSocket.state() == QAbstractSocket::ConnectedState);
     qDebug() << "статус:" << (isConnected ? "подключено" : "отключено");
@@ -251,23 +258,18 @@ void DataStreamer::checkConnectionNow() {
         emit newLogMessage("подключено", "WORK");
     } else {
         emit newLogMessage("отключено", "WORK");
+        // Сбрасываем все буферы
+        // Сбрасываем все буферы
+        m_minuteBuffer.clear(); // очищаем минутный буфер
+        m_fiveMinuteBuffer.clear(); // очищаем пятиминутный буфер
     }
 
     m_quickCheckTimer.stop();
 }
 
-// Успешное подключение
-void DataStreamer::onConnected() {
-    qDebug() << "Отслеживание onConnected";
-    //m_minuteTimer.start();  // Запускаем таймер сбора данных
-}
-
-// Разрыв соединения
-void DataStreamer::onDisconnected() {
-    qDebug() << "Отслеживание onDisconnected";
-    /*if (!m_reconnectTimer.isActive()) {
-        m_reconnectTimer.start();
-    }*/
+void DataStreamer::testStream() {
+    qDebug() << "Тест: Имитация пропуска данных 20 секунд";
+    checkDataGap(QDateTime::currentMSecsSinceEpoch() - 20000);
 }
 
 /*void DataStreamer::createGapTask(qint64 eventTimestamp) {

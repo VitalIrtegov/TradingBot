@@ -1,7 +1,15 @@
 C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/EWIEGA46WW/moc_taskmanager.cpp: C:/ProjectsQt/TradingBot/taskmanager.h \
   C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_autogen/moc_predefs.h \
+  C:/ProjectsQt/TradingBot/datastreamer.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QDateTime \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/QFlags \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QObject \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/QSharedDataPointer \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/QString \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/QTimer \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/QUrl \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/QVariant \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/QVector \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
@@ -15,6 +23,7 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -32,6 +41,7 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qcryptographichash.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
@@ -47,6 +57,7 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
@@ -100,6 +111,7 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qtimer.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -110,12 +122,37 @@ C:/ProjectsQt/TradingBot/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/TradingBot_au
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qvector.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/QAbstractSocket \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/QNetworkProxy \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/QNetworkRequest \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/QSslConfiguration \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/QSslError \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qabstractsocket.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qhostaddress.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qnetworkproxy.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qnetworkrequest.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qssl.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qsslcertificate.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qsslconfiguration.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qsslerror.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qsslsocket.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qtcpsocket.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qtnetwork-config.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qtnetworkexports.h \
+  C:/Qt/6.7.2/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWebSockets/QWebSocket \
+  C:/Qt/6.7.2/mingw_64/include/QtWebSockets/qtwebsocketsexports.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWebSockets/qwebsocket.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWebSockets/qwebsocketprotocol.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWebSockets/qwebsockets_global.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/limits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/syslimits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/algorithm \
